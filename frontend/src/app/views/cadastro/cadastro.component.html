@@ -1,0 +1,26 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="d-flex flex-wrap flex-column form-horizontal justify-content-center align-items-center">
+    <h1 class="text-center">Cadastro</h1>
+    <div class="form-floating row g-3">
+          <input type="text" class="form-control" id="name" placeholder="Nome" name="name" required [(ngModel)]="user.name" #name="ngModel" [ngClass]="applyCssError(name)">
+          <label for="nome" >Nome</label>
+    </div>
+
+    <div class="form-floating row g-3">
+        <input type="email" class="form-control" id="email" name="email" placeholder="examplo@email.com" email [(ngModel)]="user.email" #email="ngModel" required [ngClass]="applyCssError(email)">
+        <label for="email">Email</label>
+    </div>
+
+    <div class="form-floating row g-3">
+          <input type="password" class="form-control" id="password" minlength="6" placeholder="Senha" name="password" required pattern="{{ confirmPassword.value }}" [(ngModel)]="user.password" #password="ngModel" [ngClass]="applyCssError(password)">
+          <label for="password">Senha</label>
+    </div>
+
+    <div class="form-floating row g-3">
+        <input type="password" class="form-control" id="confirm-password" minlength="6" placeholder="Confirmar senha" name="confirm-password" required pattern="{{ password.value }}" [(ngModel)]="cfrmPassword" #confirmPassword="ngModel" [ngClass]="applyCssError(confirmPassword)">
+        <label for="password">Confirmar senha</label>
+    </div>
+
+    <a routerLink="/cadastro">Já tenho cadastro</a>
+    <label for="" *ngIf="errorExists">{{ errorLabel }}</label>
+    <button type="submit" class="btn btn-primary mt-2" [disabled]="f.invalid">Cadastrar usuário</button>
+</form>

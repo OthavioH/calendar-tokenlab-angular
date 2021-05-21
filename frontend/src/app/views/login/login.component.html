@@ -1,0 +1,17 @@
+<main class="form-signin">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="d-flex flex-column align-items-center">
+        <h1 class="text-center">Login</h1>
+        <div class="form-floating">
+            <input type="email" class="form-control" id="email" name="email" placeholder="examplo@email.com" email [(ngModel)]="user.email" #email="ngModel" required [ngClass]="applyCssError(email)">
+            <label for="floatingInput">Email address</label>
+        </div>
+
+        <div class="form-floating row g-3">
+            <input type="password" class="form-control" id="password" minlength="6" placeholder="Senha" name="password" required [(ngModel)]="user.password" #password="ngModel" [ngClass]="applyCssError(password)">
+            <label for="floatingPassword">Password</label>
+        </div>
+    
+        <a routerLink="/cadastro">Não tenho cadastro</a>
+        <button type="submit" class="btn btn-primary mt-2" [disabled]="f.invalid">Login</button>
+    </form>
+</main>

@@ -1,0 +1,54 @@
+<div class="d-flex flex-wrap flex-column justify-content-between align-items-center">
+    <article class="column">
+        <form #f="ngForm" (ngSubmit)="validateForm(f)">
+            <h1 class="text-center">{{ title }}</h1>
+            <div class="form-floating row g-3">
+                <input type="text" class="form-control" id="name" placeholder="Nome" name="name" [(ngModel)]="event.name" required >
+                <label for="nome">Nome do evento</label>
+            </div>
+            <div class="row g-3 mt-1">
+                <textarea class="form-control" id="description" placeholder="Descrição do evento" name="desc" [(ngModel)]="event.desc" required ></textarea>
+            </div>
+        
+            <div class="form-floating row g-3 mt-1">
+                <input type="date" class="form-control" id="startDate" [min]="currentDate" placeholder="DD/MM/YYYY" name="startDate" [ngModel]="currentDate"  #startDate="ngModel" required>
+                <label for="startDate">Data inicial</label>
+            </div>
+        
+            <div class="form-floating row g-3 mt-1">
+                <input type="date" class="form-control" id="endDate" [min]="startDate.value" placeholder="DD/MM/YYYY" name="endDate" [ngModel]="startDate.value" required>
+                <label for="endDate">Data final</label>
+            </div>
+        
+            <div class="row g-3 mt-1">
+                <label for="startTime">Hora inicial</label>
+            </div>
+        
+            <div class="row g-3 mt-1">
+                <input type="time" class="form-control" id="startTime" name="startTime" #startTimeInput="ngModel" [(ngModel)]="startTime" >
+            </div>
+        
+            <div class="row g-3 mt-1">
+                <label for="startTime">Hora final</label>
+            </div>
+        
+            <div class="row g-3 mt-1">
+                <input type="time" class="form-control" id="endTime" name="endTime" required [(ngModel)]="endTime">
+            </div>
+            
+            <div class="row g-3 mt-1" *ngIf="event.participants != null" >
+                <input type="email" class="form-control" placeholder="Email do participante" id="participantEmail" name="participantEmail" #participant="ngModel" [(ngModel)]="newParticipant" required>
+                <input type="button" class="btn btn-primary" (click)="addNewParticipant(participant.value)" value="Adicionar novo participante"/>
+                <ul class="list-group">
+                    <p class="title">Participantes do evento</p>
+                    <li class="list-group-item" *ngFor="let participant of event.participants" >{{ participant.email }}</li>
+                </ul>
+            </div>
+
+            <div class="row g-3 my-1">
+                <label id="label_error" [hidden]="hideAlert" class="alert alert-danger">{{ errorLabel }}</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2" [disabled]="f.invalid">Enviar</button>
+        </form>
+    </article>
+</div>
