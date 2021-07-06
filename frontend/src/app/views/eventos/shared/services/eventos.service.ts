@@ -1,8 +1,8 @@
-import { environment } from './../../../../../environments/environment';
-import { User } from './../../../../shared/models/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

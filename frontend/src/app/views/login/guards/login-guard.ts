@@ -1,6 +1,7 @@
-import { AuthService } from '../../../shared/services/auth.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Injectable({providedIn: 'root'})
 export class LoginGuard implements CanActivate {
@@ -11,8 +12,8 @@ export class LoginGuard implements CanActivate {
     }
 
     verifyAccess(): boolean {
-      if(this.authService.isUserAuthenticated() == false){
-        console.log("verificando acesso");
+      if(this.authService.isUserAuthenticated() === false){
+        console.log('verificando acesso');
         
         return true;
       }

@@ -1,0 +1,24 @@
+<section class="py-5 container">
+    <h2 class="text-center">{{ inputName || "Nome do usuário" }}</h2>
+    <form #f="ngForm" (ngSubmit)="validateForm(f)" class="d-flex flex-wrap flex-column justify-content-between align-items-center">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (click)="switchEditableValue(f)">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Editar informações do usuário</label>
+        </div>
+        <article class="column">
+            <section class="py-5 text-center container">
+                <div class="btn btn-circle" type="button" >
+                    <label for="user-icon">
+                        <img id="user-icon-img" class="image-circle big-image" [src]="imageUrl"/>
+                    </label>
+                    <input *ngIf="editable" type="file" accept="image/png, image/jpeg" class="d-none" name="user-icon" id="user-icon" (change)="onImageChange($event)"/>
+                </div>
+            </section>
+            <div class="form-floating row g-3">
+                <input type="text" class="form-control" id="name" placeholder="Nome" name="name" value="Othavio Henrico" [(ngModel)]="inputName" #nameInput="ngModel" required [disabled]="true">
+                <label for="nome">Nome</label>
+            </div>
+            <button *ngIf="editable" class="btn btn-primary mt-2" type="submit">Alterar</button>
+        </article>
+    </form>
+</section>

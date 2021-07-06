@@ -15,8 +15,18 @@
         <li class="nav-item" *ngIf="!hideMenu" >
           <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
         </li>
+        <li>
+          <div *ngIf="hideMenu" class="dropdown md-2">
+            <button class="btn btn-dark btn-circle btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="image-circle" [src]="imageLink" />
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" routerLink="/myuser">Configurações</button>
+              <button class="dropdown-item" (click)="onLogout()">Sair</button>
+            </div>  
+          </div>
+        </li>
       </ul>
-      <button *ngIf="hideMenu" class="btn btn-danger" (click)="onLogout()">Sair</button>
     </div>
   </div>
 </nav>

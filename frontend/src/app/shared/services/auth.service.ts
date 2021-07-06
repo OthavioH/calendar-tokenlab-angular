@@ -1,10 +1,13 @@
-import { environment } from './../../../environments/environment';
-import { User } from './../models/User';
-import { Router } from '@angular/router';
-import { EventEmitter, Injectable } from '@angular/core';
-import { UserLogin } from '../models/UserLogin';
-import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { AppComponent } from 'src/app/app.component';
+
+import { HttpClient } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { environment } from '../../../environments/environment';
+import { User } from '../models/User';
+import { UserLogin } from '../models/UserLogin';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +34,8 @@ export class AuthService {
       else {
         localStorage.setItem('token',dados['token']);
         localStorage.setItem('email',dados['user'].email);
+        if(!dados['user'].image) localStorage.setItem('userImage', 'default');
+        else localStorage.setItem('userImage',dados['user'].image);
         localStorage.setItem('isUserAuth', 'true');
         this.hideMenuEmitter.emit(this.isUserAuthenticated());
         this.router.navigate(['/eventos']);
@@ -47,6 +52,8 @@ export class AuthService {
     localStorage.removeItem('isUserAuth');
     localStorage.removeItem('email');
     localStorage.removeItem('token');
+    localStorage.setItem('userImage', 'default');
+    
     
     this.hideMenuEmitter.emit(this.isUserAuthenticated());
     this.router.navigate(['/login']);

@@ -1,7 +1,8 @@
-import { User } from './../../shared/models/User';
-import { AuthService } from './../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
+import { User } from '../../shared/models/User';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,9 +16,9 @@ export class CadastroComponent implements OnInit {
     email: '',
     password: '',
   }
-  cfrmPassword: String = '';
+  cfrmPassword: string = '';
   errorExists: boolean = false;
-  errorLabel: String = '';
+  errorLabel: string = '';
 
   constructor(private authService: AuthService) { }
 

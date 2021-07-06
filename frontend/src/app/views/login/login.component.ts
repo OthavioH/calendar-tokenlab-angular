@@ -1,8 +1,10 @@
-import { AuthService } from './../../shared/services/auth.service';
+import { UserLogin } from 'src/app/shared/models/UserLogin';
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserLogin } from 'src/app/shared/models/UserLogin';
 import { Router } from '@angular/router';
+
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(form);
     this.authService.loginUser(this.user);
   }
 

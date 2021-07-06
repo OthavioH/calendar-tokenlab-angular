@@ -4,3 +4,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.image-circle {
+    width: 30px;
+    height:30px;
+    border-radius: 10em;
+}
+
+.big-image {
+    width:80px;
+    height:80px;
+}
+
+.btn-circle {
+    border-radius: 10em;
+}

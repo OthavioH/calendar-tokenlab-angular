@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 
 const db_URL = process.env.DB_URL;
+console.log(db_URL);
+
 
 const server = express();
 

@@ -1,7 +1,9 @@
-import { EventosService } from './../shared/services/eventos.service';
 import { Observable } from 'rxjs';
+
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+
+import { EventosService } from '../shared/services/eventos.service';
 
 @Injectable({
   providedIn: 'root'

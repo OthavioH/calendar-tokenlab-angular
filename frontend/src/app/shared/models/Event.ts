@@ -1,13 +1,13 @@
 
 export class Event {
     _id: string;
-    name: String;
-    desc: String;
+    name: string;
+    desc: string;
     startDate: Date;
     endDate: Date;
-    startTime: String;
-    endTime: String;
-    author: String;
+    startTime: string;
+    endTime: string;
+    author: string;
     participants: Object;
 
     constructor(){}
