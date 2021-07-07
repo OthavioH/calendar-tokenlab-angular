@@ -1,16 +1,18 @@
-import { AuthService } from './../../shared/services/auth.service';
 import { Subscription } from 'rxjs';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Event } from './../../shared/models/Event';
+
+import { Event } from '../../shared/models/Event';
+import { AuthService } from '../../shared/services/auth.service';
 import { EventosService } from './shared/services/eventos.service';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
   styleUrls: ['./eventos.component.scss']
 })
-export class EventosComponent implements OnInit {
+export class EventosComponent implements OnInit, OnDestroy {
 
   subscribe: Subscription;
   eventUpdate: Subscription;
@@ -50,6 +52,5 @@ export class EventosComponent implements OnInit {
         console.log(this.participantsList);
       }
     }
-    // this.usersList = await this.eventosService.getUsersList();
   }
 }

@@ -9,7 +9,7 @@ import { AuthService } from '../../shared/services/auth.service';
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
-export class CadastroComponent implements OnInit {
+export class CadastroComponent {
 
   user: User = {
     name: '',
@@ -21,9 +21,6 @@ export class CadastroComponent implements OnInit {
   errorLabel: string = '';
 
   constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
 
   onSubmit(form: NgForm){
     if(form.valid){

@@ -27,7 +27,7 @@ class S3Storage {
         const fileContent = await fs.promises.readFile(originalPath);
 
         client.putObject({
-            Bucket: 'token-calendary-1',
+            Bucket: proccess.env.S3_BUCKET,
             Key: filename,
             ACL: 'public-read',
             Body: fileContent,
@@ -39,7 +39,7 @@ class S3Storage {
 
     async deleteFile(filename) {
         client.deleteObject({
-            Bucket: 'token-calendary-1',
+            Bucket: proccess.env.S3_BUCKET,
             Key: filename,
         }).promise();
     }

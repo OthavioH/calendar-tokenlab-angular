@@ -11,14 +11,11 @@ import { AuthService } from '../../shared/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   user: UserLogin = new UserLogin;
 
   constructor(private authService: AuthService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   onSubmit(form: NgForm){
     this.authService.loginUser(this.user);

@@ -1,16 +1,18 @@
-import { NgForm } from '@angular/forms';
-import { EventosService } from './../shared/services/eventos.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Event } from './../../../shared/models/Event';
-import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { Event } from '../../../shared/models/Event';
+import { EventosService } from '../shared/services/eventos.service';
 
 @Component({
   selector: 'app-eventos-form',
   templateUrl: './eventos-form.component.html',
   styleUrls: ['./eventos-form.component.scss']
 })
-export class EventosFormComponent implements OnInit {
+export class EventosFormComponent implements OnInit, OnDestroy {
 
   subscribe: Subscription;
   event: any;

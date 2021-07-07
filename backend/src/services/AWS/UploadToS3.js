@@ -1,4 +1,4 @@
-const S3Storage = require('../utils/S3Storage');
+const S3Storage = require('../../utils/S3Storage');
 
 async function upload(file) {
     const s3Storage = new S3Storage();
